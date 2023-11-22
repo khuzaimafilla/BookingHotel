@@ -60,5 +60,6 @@ public class BookingHotel1 {
         } while (pesanLagi == 'Y' || pesanLagi == 'y');
         System.out.println("kelompok 3");
         System.out.println("update");
+        System.out.println("Aduhduhduh");
     }
 }
