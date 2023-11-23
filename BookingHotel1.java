@@ -58,11 +58,5 @@ public class BookingHotel1 {
             pesanLagi = hotel.next().charAt(0);
 
         } while (pesanLagi == 'Y' || pesanLagi == 'y');
-<<<<<<< HEAD
-=======
-        System.out.println("kelompok 3");
-        System.out.println("update");
-        System.out.println("Aduhduhduh");
->>>>>>> 27a3d937f95d4807704aabde062ab56429efca2b
     }
 }
