@@ -25,12 +25,12 @@ public class bookinghotel2 {
         long[] hargaKamar = {tarif1, tarif2, tarif3};
 
         // Inisialisasi array kamarTersedia
-        boolean[] kamarTersedia = {true, true, true}; // Added array for room availability
+        boolean[] kamarTersedia = {true, true, true}; // array
 
         // Inisialisasi array daftar kamar (sample data, adjust as needed)
         String[][] daftarKamar = {
             {"JENIS KAMAR\t", "HARGA\t", "FASILITAS"},
-            {"Standard\t", "Rp. 500.000,00 / Malam\t", "1x Single Bed\n1x TV\n1x Kipas\nPerlengkapan Mandi"},
+            {"Standard\t", "Rp. 500.000,00 / Malam\t", "2x Single Bed\n1x TV\n1x Kipas\nPerlengkapan Mandi"},
             {"Superior\t", "Rp. 1.000.000,00 / Malam\t", "1x Double Bed\n1x AC\n1x TV 24 inch\nPerlengkapan Mandi\nMakan & Minum Pagi"},
             {"Deluxe\t", "Rp. 1.500.000,00 / Malam\t", "1x Queen Bed\n2x AC\n1x TV 48 inch\nPerlengkapan Mandi\nMakan & Minum 3x Sehari + Snack"},
         };
@@ -81,7 +81,7 @@ public class bookinghotel2 {
                             // Implement daftar tamu
                             for (int i = 0; i < namaTamu.length; i++) {
                                 if (namaTamu[i] != null) {
-                                    System.out.println("Nama: " + namaTamu[i] + ", Asal: " + asalTamu[i] + ", Usia: " + usiaTamu[i] + " tahun, Menginap selama " + lamaMenginapTamu[i] + " malam.");
+                                    System.out.println("Nama: " + namaTamu[i] + ", Asal: " + asalTamu[i] + ", Usia: " + usiaTamu[i] + " tahun, Menginap selama " + lamaMenginapTamu[i] + " malam," + " Total : " + totalPembayaran[i]);
                                 }
                             }
                             break;
