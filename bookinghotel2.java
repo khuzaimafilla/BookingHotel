@@ -7,8 +7,12 @@ public class bookinghotel2 {
         Scanner input = new Scanner(System.in);
 
         // Deklarasi Variable
-        String nama, asal;
-        int usia, lama_menginap, jmlTamu;
+        String[] namaTamu = new String[100]; // Array untuk nama tamu
+        String[] asalTamu = new String[100]; // Array untuk asal tamu
+        int[] usiaTamu = new int[100];       // Array untuk usia tamu
+        int[] lamaMenginapTamu = new int[100];// Array untuk lama menginap tamu
+        int[] jmlTamuKamar = new int[100];    // Array untuk jumlah tamu dalam satu kamar
+        long[] totalPembayaran = new long[100];// Array untuk total pembayaran tamu
         char pesanLagi;
 
         // Deklarasi dan inisialisasi untuk tarif
@@ -75,20 +79,25 @@ public class bookinghotel2 {
                         // Menampilkan daftar tamu yang menginap
                         case 2:
                             // Implement daftar tamu
+                            for (int i = 0; i < namaTamu.length; i++) {
+                                if (namaTamu[i] != null) {
+                                    System.out.println("Nama: " + namaTamu[i] + ", Asal: " + asalTamu[i] + ", Usia: " + usiaTamu[i] + " tahun, Menginap selama " + lamaMenginapTamu[i] + " malam.");
+                                }
+                            }
                             break;
                         // Melakukan Transaksi
                         case 3:
                             do {
                                 System.out.print("Masukkan nama: ");
-                                nama = input.next();
+                                String nama = input.next();
                                 System.out.print("Masukkan usia: ");
-                                usia = input.nextInt();
+                                int usia = input.nextInt();
                                 System.out.print("Masukkan asal daerah/domisili anda: ");
-                                asal = input.next();
+                                String asal = input.next();
                                 System.out.print("Masukkan waktu lama menginap anda (Malam): ");
-                                lama_menginap = input.nextInt();
+                                int lama_menginap = input.nextInt();
                                 System.out.print("Masukkan jumlah tamu dalam satu kamar: ");
-                                jmlTamu = input.nextInt();
+                                int jmlTamu = input.nextInt();
 
                                 if (jmlTamu <= 4) {
                                     // MENAMPILKAN OPSI PILIH KAMAR
@@ -104,6 +113,20 @@ public class bookinghotel2 {
                                         if (kamarTersedia[menu - 1]) {
                                             kamarTersedia[menu - 1] = false;
                                             total = lama_menginap * hargaKamar[menu - 1];
+
+                                            // Menambahkan data tamu
+                                            for (int i = 0; i < namaTamu.length; i++) {
+                                                if (namaTamu[i] == null) {
+                                                    namaTamu[i] = nama;
+                                                    asalTamu[i] = asal;
+                                                    usiaTamu[i] = usia;
+                                                    lamaMenginapTamu[i] = lama_menginap;
+                                                    jmlTamuKamar[i] = jmlTamu;
+                                                    totalPembayaran[i] = total;
+                                                    break;
+                                                }
+                                            }
+
                                             // MENAMPILKAN DETAIL PESANAN
                                             System.out.println("===========================================================================================");
                                             System.out.println("|================================= DETAIL PEMESANAN ======================================|");
@@ -127,6 +150,7 @@ public class bookinghotel2 {
                                 } else {
                                     System.out.println("Pilihan tidak valid");
                                 }
+
                                 System.out.println("Apakah anda ingin Reschedule? (Y/N): ");
                                 pesanLagi = input.next().charAt(0);
                             } while (pesanLagi == 'Y' || pesanLagi == 'y');
