@@ -14,6 +14,7 @@ public class bookinghotel2 {
         int[] lamaMenginapTamu = new int[100];// Array untuk lama menginap tamu
         int[] jmlTamuKamar = new int[100];    // Array untuk jumlah tamu dalam satu kamar
         long[] totalPembayaran = new long[100];// Array untuk total pembayaran tamu
+        boolean kembaliKeMenuCheckIn;
         char pesanLagi;
 
         // Deklarasi dan inisialisasi untuk tarif
@@ -57,11 +58,12 @@ public class bookinghotel2 {
             System.out.print("Masukkan Opsi : ");
             int opsi = input.nextInt();
             System.out.println();
-
+            kembaliKeMenuCheckIn = false;
             switch (opsi) {
 
                 // CHECK IN
                 case 1:
+                do{
                     System.out.println("===============================");
                     System.out.println("|        MENU CHECK IN        |");
                     System.out.println("|=============================|");
@@ -74,6 +76,8 @@ public class bookinghotel2 {
                     System.out.print("Masukkan Pilihan : ");
                     int pilihan = input.nextInt();
                     System.out.println();
+
+                    kembaliKeMenuCheckIn = false;
 
                     switch (pilihan) {
                         // Menampilkan Ketersediaan Kamar
@@ -172,18 +176,23 @@ public class bookinghotel2 {
 
                                 System.out.print("Apakah anda ingin Pesan Lagi? (Y/N): ");
                                 pesanLagi = input.next().charAt(0);
+                                if (pesanLagi == 'N' || pesanLagi == 'n'){
+                                    kembaliKeMenuCheckIn = false;
+                                    break;
+                                }
                             } while (pesanLagi == 'Y' || pesanLagi == 'y');
                             break;
 
                         case 4:
                             System.out.println("Pelanggan "+ namaTamu +" telah di Checkout!");
+                            kembaliKeMenuCheckIn = true;
                             break;
 
                         default:
                             System.out.println("Bukan Pilihan!");
                             break;
                     }
-
+                } while (!kembaliKeMenuCheckIn);
                     break;
 
                 // LIST HARGA KELAS KAMAR
