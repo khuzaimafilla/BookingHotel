@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Date;
 
 public class bookinghotel2 {
     public static void main(String[] args) {
@@ -29,23 +30,29 @@ public class bookinghotel2 {
 
         // Inisialisasi array daftar kamar (sample data, adjust as needed)
         String[][] daftarKamar = {
-            {"JENIS KAMAR\t", "HARGA\t", "FASILITAS"},
-            {"Standard\t", "Rp. 500.000,00 / Malam\t", "2x Single Bed\n1x TV\n1x Kipas\nPerlengkapan Mandi"},
-            {"Superior\t", "Rp. 1.000.000,00 / Malam\t", "1x Double Bed\n1x AC\n1x TV 24 inch\nPerlengkapan Mandi\nMakan & Minum Pagi"},
-            {"Deluxe\t", "Rp. 1.500.000,00 / Malam\t", "1x Queen Bed\n2x AC\n1x TV 48 inch\nPerlengkapan Mandi\nMakan & Minum 3x Sehari + Snack"},
+            {"JENIS KAMAR", "HARGA", "FASILITAS"},
+            {"Standard", "Rp. 500.000,00 / Malam", "2x Single Bed\n1x TV\n1x Kipas\nPerlengkapan Mandi"},
+            {"Superior", "Rp. 1.000.000,00 / Malam", "1x Double Bed\n1x AC\n1x TV 24 inch\nPerlengkapan Mandi\nMakan & Minum Pagi"},
+            {"Deluxe", "Rp. 1.500.000,00 / Malam", "1x Queen Bed\n2x AC\n1x TV 48 inch\nPerlengkapan Mandi\nMakan & Minum 3x Sehari + Snack"},
         };
 
-        System.out.println("=================");
-        System.out.println("| BOOKING HOTEL |");
-        System.out.println("=================");
-        System.out.println("SELAMAT DATANG!\nAda yang bisa kami bantu?\nBerikut adalah opsi yang bisa anda pilih..");
+        System.out.println("======================================================================================");
+        System.out.println("|                                  BOOKING HOTEL                                     |");
+        System.out.println("|====================================================================================|");
+        System.out.println("| SELAMAT DATANG !!!                                                                 |");
+        System.out.println("| Ada yang bisa kami bantu ?                                                         |");
+        System.out.println("| Berikut adalah opsi yang bisa anda pilih !                                         |");
+        System.out.println("======================================================================================\n");
 
         // Menampilkan Pilihan Menu
         while (true) {
-            System.out.println("");
-            System.out.println("1. Check In");
-            System.out.println("2. List Harga Kelas Kamar");
-            System.out.println("3. EXIT");
+            System.out.println("=============================");
+            System.out.println("|        MENU UTAMA         |");
+            System.out.println("|===========================|");
+            System.out.println("| 1. Check In               |");
+            System.out.println("| 2. List Harga Kelas Kamar |");
+            System.out.println("| 3. EXIT                   |");
+            System.out.println("=============================");
 
             System.out.print("Masukkan Opsi : ");
             int opsi = input.nextInt();
@@ -55,13 +62,14 @@ public class bookinghotel2 {
 
                 // CHECK IN
                 case 1:
-                    System.out.println("============");
-                    System.out.println("| CHECK IN |");
-                    System.out.println("============");
-                    System.out.println("1. Check ketersediaan kamar");
-                    System.out.println("2. Daftar Tamu Menginap");
-                    System.out.println("3. Pesan Kamar");
-                    System.out.println("4. Checkout");
+                    System.out.println("===============================");
+                    System.out.println("|        MENU CHECK IN        |");
+                    System.out.println("|=============================|");
+                    System.out.println("| 1. Check ketersediaan kamar |");
+                    System.out.println("| 2. Daftar Tamu Menginap     |");
+                    System.out.println("| 3. Pesan Kamar              |");
+                    System.out.println("| 4. Checkout                 |");
+                    System.out.println("===============================");
 
                     System.out.print("Masukkan Pilihan : ");
                     int pilihan = input.nextInt();
@@ -79,15 +87,22 @@ public class bookinghotel2 {
                         // Menampilkan daftar tamu yang menginap
                         case 2:
                             // Implement daftar tamu
-                            for (int i = 0; i < namaTamu.length; i++) {
-                                if (namaTamu[i] != null) {
-                                    System.out.println("Nama: " + namaTamu[i] + ", Asal: " + asalTamu[i] + ", Usia: " + usiaTamu[i] + " tahun, Menginap selama " + lamaMenginapTamu[i] + " malam," + " Total : " + totalPembayaran[i]);
+                            
+                                for (int i = 0; i < namaTamu.length; i++) {
+                                    if (namaTamu[i] != null) {
+                                        System.out.println("==================");
+                                        System.out.println("Nama: " + namaTamu[i] + "\nAsal: " + asalTamu[i] + "\nUsia: " + usiaTamu[i] + " tahun");
+                                        System.out.println("==================");
+                                    }
                                 }
-                            }
-                            break;
+                                break;
+                            
                         // Melakukan Transaksi
                         case 3:
                             do {
+                                System.out.println("===============================");
+                                System.out.println("|         PESAN KAMAR         |");
+                                System.out.println("===============================");
                                 System.out.print("Masukkan nama: ");
                                 String nama = input.next();
                                 System.out.print("Masukkan usia: ");
@@ -99,13 +114,16 @@ public class bookinghotel2 {
                                 System.out.print("Masukkan jumlah tamu dalam satu kamar: ");
                                 int jmlTamu = input.nextInt();
 
+
                                 if (jmlTamu <= 4) {
                                     // MENAMPILKAN OPSI PILIH KAMAR
-                                    System.out.println("Pilihan Kelas Kamar yang Tersedia: ");
+                                    System.out.println("====================================");
+                                    System.out.println("|Pilihan Kelas Kamar yang Tersedia:|");
+                                    System.out.println("====================================");
                                     for (int i = 0; i < kelasKamar.length; i++) {
                                         System.out.println((i + 1) + ". " + kelasKamar[i] + " - Harga: Rp " + hargaKamar[i]);
                                     }
-
+                                    System.out.println("====================================");
                                     System.out.print("Pilih jenis kamar: ");
                                     int menu = input.nextInt();
 
@@ -128,16 +146,17 @@ public class bookinghotel2 {
                                             }
 
                                             // MENAMPILKAN DETAIL PESANAN
-                                            System.out.println("===========================================================================================");
-                                            System.out.println("|================================= DETAIL PEMESANAN ======================================|");
-                                            System.out.println("===========================================================================================");
-                                            System.out.println("Nama: " + nama + " \t\t|");
-                                            System.out.println("Usia: " + usia + " Tahun \t\t|");
-                                            System.out.println("Asal Daerah: " + asal + " \t\t|");
-                                            System.out.println("=============================================");
-                                            System.out.println("|Total pembayaran selama " + lama_menginap + " malam: Rp " + total + "|");
-                                            System.out.println("=============================================");
-                                            System.out.println("======================= TERIMAKASIH TELAH MENGINAP DI HOTEL KAMI !!! =======================");
+                                            System.out.println("============================================================================================");
+                                            System.out.println("|                                     DETAIL PEMESANAN                                     |");
+                                            System.out.println("============================================================================================");
+                                            System.out.println("| Nama: " + nama);
+                                            System.out.println("| Usia: " + usia + " Tahun");
+                                            System.out.println("| Asal Daerah: " + asal);
+                                            System.out.println("===========================================================================================|");
+                                            System.out.println("| Total pembayaran selama " + lama_menginap + " malam: Rp " + total);
+                                            System.out.println("|==========================================================================================|");
+                                            System.out.println("|                       TERIMAKASIH TELAH MENGINAP DI HOTEL KAMI !!!                       |");
+                                            System.out.println("|==========================================================================================|");
                                             System.out.println("| *pastikan semua barang dan perlengkapan anda tidak tertinggal di kamar maupun area hotel |");
                                             System.out.println("| *pihak hotel tidak akan bertanggungjawab atas segala kehilangan yang dialami pelanggan   |");
                                             System.out.println("============================================================================================");
@@ -151,13 +170,13 @@ public class bookinghotel2 {
                                     System.out.println("Pilihan tidak valid");
                                 }
 
-                                System.out.println("Apakah anda ingin Reschedule? (Y/N): ");
+                                System.out.print("Apakah anda ingin Pesan Lagi? (Y/N): ");
                                 pesanLagi = input.next().charAt(0);
                             } while (pesanLagi == 'Y' || pesanLagi == 'y');
                             break;
 
                         case 4:
-                            System.out.println("Pelanggan telah di Checkout!");
+                            System.out.println("Pelanggan "+ namaTamu +" telah di Checkout!");
                             break;
 
                         default:
@@ -183,9 +202,9 @@ public class bookinghotel2 {
                     System.exit(0);
                     break;
 
-                default:
-                    System.out.println("Opsi Tidak Ada!");
-                    break;
+             default:
+                 System.out.println("Opsi Tidak Ada!");
+                 break;
             }
         }
     }
