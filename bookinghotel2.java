@@ -31,10 +31,9 @@ public class bookinghotel2 {
 
         // Inisialisasi array daftar kamar (sample data, adjust as needed)
         String[][] daftarKamar = {
-            {"JENIS KAMAR", "HARGA", "FASILITAS"},
-            {"Standard", "Rp. 500.000,00 / Malam", "2x Single Bed\n1x TV\n1x Kipas\nPerlengkapan Mandi"},
-            {"Superior", "Rp. 1.000.000,00 / Malam", "1x Double Bed\n1x AC\n1x TV 24 inch\nPerlengkapan Mandi\nMakan & Minum Pagi"},
-            {"Deluxe", "Rp. 1.500.000,00 / Malam", "1x Queen Bed\n2x AC\n1x TV 48 inch\nPerlengkapan Mandi\nMakan & Minum 3x Sehari + Snack"},
+            {"Standard", "Rp. 500.000,00 / Malam", "2x Single Bed 1x TV 1x Kipas Perlengkapan Mandi"},
+            {"Superior", "Rp. 1.000.000,00 / Malam", "1x Double Bed 1x AC 1x TV 24 inch Perlengkapan Mandi Makan & Minum Pagi"},
+            {"Deluxe", "Rp. 1.500.000,00 / Malam", "1x Queen Bed 2x AC 1x TV 48 inch Perlengkapan Mandi Makan & Minum 3x Sehari + Snack"},
         };
 
         System.out.println("======================================================================================");
@@ -50,9 +49,10 @@ public class bookinghotel2 {
             System.out.println("=============================");
             System.out.println("|        MENU UTAMA         |");
             System.out.println("|===========================|");
-            System.out.println("| 1. Check In               |");
+            System.out.println("| 1. Masuk menu Check In    |");
             System.out.println("| 2. List Harga Kelas Kamar |");
-            System.out.println("| 3. EXIT                   |");
+            System.out.println("| 3. Daftar Tamu Menginap   |");
+            System.out.println("| 4. EXIT                   |");
             System.out.println("=============================");
 
             System.out.print("Masukkan Opsi : ");
@@ -68,9 +68,9 @@ public class bookinghotel2 {
                     System.out.println("|        MENU CHECK IN        |");
                     System.out.println("|=============================|");
                     System.out.println("| 1. Check ketersediaan kamar |");
-                    System.out.println("| 2. Daftar Tamu Menginap     |");
-                    System.out.println("| 3. Pesan Kamar              |");
-                    System.out.println("| 4. Checkout                 |");
+                    System.out.println("| 2. Pesan Kamar              |");
+                    System.out.println("| 3. Checkout                 |");
+                    System.out.println("| 0. Kembali ke Menu Awal     |");
                     System.out.println("===============================");
 
                     System.out.print("Masukkan Pilihan : ");
@@ -84,25 +84,13 @@ public class bookinghotel2 {
                         case 1:
                             System.out.println("Ketersediaan Kamar:");
                             for (int i = 0; i < kelasKamar.length; i++) {
-                                String status = kamarTersedia[i] ? "Tersedia" : "Penuh";
+                                String status = kamarTersedia[i] ? "Tersedia" : "Terisi";
                                 System.out.println((i + 1) + ". " + kelasKamar[i] + " - Status: " + status);
                             }
                             break;
-                        // Menampilkan daftar tamu yang menginap
-                        case 2:
-                            // Implement daftar tamu
-                            
-                                for (int i = 0; i < namaTamu.length; i++) {
-                                    if (namaTamu[i] != null) {
-                                        System.out.println("==================");
-                                        System.out.println("Nama: " + namaTamu[i] + "\nAsal: " + asalTamu[i] + "\nUsia: " + usiaTamu[i] + " tahun");
-                                        System.out.println("==================");
-                                    }
-                                }
-                                break;
-                            
+                        
                         // Melakukan Transaksi
-                        case 3:
+                        case 2:
                             do {
                                 System.out.println("===============================");
                                 System.out.println("|         PESAN KAMAR         |");
@@ -183,8 +171,14 @@ public class bookinghotel2 {
                             } while (pesanLagi == 'Y' || pesanLagi == 'y');
                             break;
 
-                        case 4:
-                            System.out.println("Pelanggan "+ namaTamu +" telah di Checkout!");
+                        case 3:
+                            System.out.println("================================");
+                            System.out.println("|       TELAH CHECKOUT!        |");
+                            System.out.println("================================");
+                            kembaliKeMenuCheckIn = true;
+                            break;
+                        
+                        case 0:
                             kembaliKeMenuCheckIn = true;
                             break;
 
@@ -207,6 +201,16 @@ public class bookinghotel2 {
 
                 // EXIT
                 case 3:
+                    for (int i = 0; i < namaTamu.length; i++) {
+                                    if (namaTamu[i] != null) {
+                                        System.out.println("==================");
+                                        System.out.println("Nama: " + namaTamu[i] + "\nAsal: " + asalTamu[i] + "\nUsia: " + usiaTamu[i] + " tahun");
+                                        System.out.println("==================");
+                                    }
+                                }
+                                break;
+
+                case 4:
                     System.out.println("Terimakasih atas kunjungan anda!\nSilahkan Pulang!\n");
                     System.exit(0);
                     break;
