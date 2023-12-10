@@ -173,8 +173,51 @@ public class bookinghotel2 {
 
                         case 3:
                             System.out.println("================================");
-                            System.out.println("|       TELAH CHECKOUT!        |");
+                            System.out.println("|       MENU CHECKOUT!        |");
                             System.out.println("================================");
+
+                            // Menampilkan Daftar Tamu Menginap
+                                System.out.println("Daftar Tamu Menginap:");
+                                boolean adaTamu = false;
+
+                                for (int i = 0; i < namaTamu.length; i++) {
+                                    if (namaTamu[i] != null) {
+                                        System.out.println("==================");
+                                        System.out.println("Nama: " + namaTamu[i] + "\nAsal: " + asalTamu[i] + "\nUsia: " + usiaTamu[i] + " tahun");
+                                        System.out.println("==================");
+                                        adaTamu = true;
+                                    }
+                                }
+
+                                if (!adaTamu) {
+                                    System.out.println("Belum ada tamu yang check-in.");
+                                } else {
+                                    // Proses checkout
+                                    System.out.print("Masukkan nama tamu yang akan checkout: ");
+                                    String namaCheckout = input.next();
+                                    boolean tamuDitemukan = false;
+
+                                    for (int i = 0; i < namaTamu.length; i++) {
+                                        if (namaTamu[i] != null && namaTamu[i].equalsIgnoreCase(namaCheckout)) {
+                                            kamarTersedia[i] = true; // Mengembalikan kamar menjadi tersedia
+                                            namaTamu[i] = null; // Menghapus data tamu yang checkout
+                                            asalTamu[i] = null;
+                                            usiaTamu[i] = 0;
+                                            lamaMenginapTamu[i] = 0;
+                                            jmlTamuKamar[i] = 0;
+                                            totalPembayaran[i] = 0;
+
+                                            System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
+                                            tamuDitemukan = true;
+                                            kembaliKeMenuCheckIn = false;
+                                            break;
+                                        }
+                                    }
+
+                                    if (!tamuDitemukan) {
+                                        System.out.println("Tamu dengan nama " + namaCheckout + " tidak ditemukan.");
+                                    }
+                                }
                             kembaliKeMenuCheckIn = true;
                             break;
                         
