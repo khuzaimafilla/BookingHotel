@@ -121,7 +121,7 @@ public class bookinghotel2 {
 
                                     if (menu >= 1 && menu <= kelasKamar.length) {
                                         if (kamarTersedia[menu - 1]) {
-                                            kamarTersedia[menu - 1] = false;
+                                            kamarTersedia[menu - 1] = true;
                                             total = lama_menginap * hargaKamar[menu - 1];
 
                                             // Menambahkan data tamu
@@ -200,6 +200,10 @@ public class bookinghotel2 {
                                     for (int i = 0; i < namaTamu.length; i++) {
                                         if (namaTamu[i] != null && namaTamu[i].equalsIgnoreCase(namaCheckout)) {
                                             kamarTersedia[i] = true; // Mengembalikan kamar menjadi tersedia
+                                             System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
+                                            tamuDitemukan = true;
+                                            kembaliKeMenuCheckIn = false;
+
                                             namaTamu[i] = null; // Menghapus data tamu yang checkout
                                             asalTamu[i] = null;
                                             usiaTamu[i] = 0;
@@ -207,9 +211,7 @@ public class bookinghotel2 {
                                             jmlTamuKamar[i] = 0;
                                             totalPembayaran[i] = 0;
 
-                                            System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
-                                            tamuDitemukan = true;
-                                            kembaliKeMenuCheckIn = false;
+                                           
                                             break;
                                         }
                                     }
