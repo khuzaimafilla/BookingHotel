@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class bookinghotel2 {
+public class function {
     public static void main(String[] args) {
 
         // Deklarasi Scanner
