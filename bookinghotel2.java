@@ -123,7 +123,7 @@ public class bookinghotel2 {
 
                                     if (menu >= 1 && menu <= kelasKamar.length) {
                                         if (kamarTersedia[menu - 1]) {
-                                            kamarTersedia[menu - 1] = true;
+                                            kamarTersedia[menu - 1] = false;
                                             total = lama_menginap * hargaKamar[menu - 1];
 
                                             // Menambahkan data tamu
