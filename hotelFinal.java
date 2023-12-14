@@ -221,62 +221,62 @@ public class hotelFinal {
                     break;
 
                 //Menu CHECK-OUT
-                // case 6:
-                //     System.out.println("================================");
-                //     System.out.println("|           CHECKOUT!          |");
-                //     System.out.println("================================");
+                 case 6:
+                     System.out.println("================================");
+                     System.out.println("|           CHECKOUT!          |");
+                     System.out.println("================================");
 
-                //     // Menampilkan Daftar Tamu Menginap
-                //         System.out.println("Daftar Tamu Menginap:");
-                //         boolean adaTamu = false;
+                     // Menampilkan Daftar Tamu Menginap
+                         System.out.println("Daftar Tamu Menginap:");
+                        adaTamu = false;
 
-                //         for (int i = 0; i < namaTamu.length; i++) {
-                //             if (namaTamu[i] != null){
-                //                 System.out.println("==================");
-                //                 System.out.println("Nama: " + namaTamu[i]);
-                //                 System.out.println("Asal: " + asalTamu[i]);
-                //                 System.out.println("Usia: " + usiaTamu[i]);
-                //                 System.out.println("Lama menginap: " + lamaMenginapTamu[i]);
-                //                 System.out.println("Tanggal: " + tanggalBook[i]);
-                //                 System.out.println("==================");
+                         for (int i = 0; i < namaTamu.length; i++) {
+                             if (namaTamu[i] != null){
+                                 System.out.println("==================");
+                                 System.out.println("Nama: " + namaTamu[i]);
+                                 System.out.println("Asal: " + asalTamu[i]);
+                                 System.out.println("Usia: " + usiaTamu[i]);
+                                 System.out.println("Lama menginap: " + lamaMenginapTamu[i]);
+                                 System.out.println("Tanggal: " + tanggalBook[i]);
+                                 System.out.println("==================");
                                 
-                //                 adaTamu = true;
-                //             }
+                                 adaTamu = true;
+                             }
                         
-                //         }
+                         }
 
-                //         if (!adaTamu) {
-                //             System.out.println("Belum ada tamu yang check-in.");
-                //         } else {
-                //             // Proses checkout
-                //             System.out.print("Masukkan nama tamu yang akan checkout: ");
-                //             String namaCheckout = input.next();
-                //             boolean tamuDitemukan = false;
+                         if (!adaTamu) {
+                             System.out.println("Belum ada tamu yang check-in.");
+                         } else {
+                             // Proses checkout
+                             System.out.print("Masukkan nama tamu yang akan checkout: ");
+                             String namaCheckout = input.next();
+                             tamuDitemukan = false;
 
-                //             for (int i = 0; i < namaTamu.length; i++) {
-                //                 if (namaTamu[i] != null && namaTamu[i].equalsIgnoreCase(namaCheckout)) {
-                //                     kamarTersedia[i] = true; // Mengembalikan kamar menjadi tersedia
-                //                     System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
-                //                     tamuDitemukan = true;
+                             for (int i = 0; i < namaTamu.length; i++) {
+                                 if (namaTamu[i] != null && namaTamu[i].equalsIgnoreCase(namaCheckout)) {
+                                     kamarTersedia[i] = true; // Mengembalikan kamar menjadi tersedia
+                                     System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
+                                     tamuDitemukan = true;
 
-                //                     // Menghapus data tamu yang checkout
-                //                     namaTamu[i] = null; 
-                //                     asalTamu[i] = null;
-                //                     tanggalBook[i] = null;
-                //                     usiaTamu[i] = 0;
-                //                     lamaMenginapTamu[i] = 0;
-                //                     jmlTamuKamar[i] = 0;
-                //                     totalPembayaran[i] = 0;
+                                     // Menghapus data tamu yang checkout
+                                     namaTamu[i] = null; 
+                                     asalTamu[i] = null;
+                                     tanggalBook[i] = null;
+                                     usiaTamu[i] = 0;
+                                     lamaMenginapTamu[i] = 0;
+                                     jmlTamuKamar[i] = 0;
+                                     totalPembayaran[i] = 0;
 
-                //                     break;
-                //                 }
-                //             }
+                                     break;
+                                 }
+                             }
 
-                //             if (!tamuDitemukan) {
-                //                 System.out.println("Tamu dengan nama " + namaCheckout + " tidak ditemukan.");
-                //             }
-                //         }
-                // break;
+                             if (!tamuDitemukan) {
+                                 System.out.println("Tamu dengan nama " + namaCheckout + " tidak ditemukan.");
+                             }
+                         }
+                 break;
 
                 //Menu EXIT
                 case 0:

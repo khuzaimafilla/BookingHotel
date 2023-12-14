@@ -69,7 +69,7 @@ public class bookinghotel2 {
                         System.out.println("|=============================|");
                         System.out.println("| 1. Check ketersediaan kamar |");
                         System.out.println("| 2. Pesan Kamar              |");
-                        System.out.println("| 3. Reschedule Booking       |"); // Tambahkan opsi reschedule
+                        System.out.println("| 3. Reschedule Booking       |"); 
                         System.out.println("| 4. Checkout                 |");
                         System.out.println("| 0. Kembali ke Menu Awal     |");
                         System.out.println("===============================");
