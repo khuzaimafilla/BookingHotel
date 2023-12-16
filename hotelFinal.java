@@ -174,7 +174,11 @@ public class hotelFinal {
                             System.out.print("Pilih jenis kamar: ");
                             int menu = input.nextInt();
 
+                            //Kondisi saat memilih kamar
                             if (menu >= 1 && menu <= kelasKamar.length) {
+
+                                // menu -1, artinya saat memilih menu kamar, array akan dipanggil sesuai indexnya, yaitu dimulai dari index 0
+                                // ketika kita memilih opsi kamar 1, maka yang terpanggil adalah array di index 0
                                 if (kamarTersedia[menu - 1]) {
                                     kamarTersedia[menu - 1] = false;
                                     total = lama_menginap * hargaKamar[menu - 1];
