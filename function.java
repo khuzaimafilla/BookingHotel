@@ -56,6 +56,9 @@ public class function {
             {"Deluxe", "Rp. 1.500.000,00 / Malam", "1x Queen Bed 2x AC 1x TV 48 inch Perlengkapan Mandi Makan & Minum 3x Sehari + Snack"},
         };
 
+        // Deklarasi boolean untuk mengecek apakah ada tamu yang check-in
+         boolean adaTamu = false;
+
         //panggil fungsi selamat datang
         selamatDatang();
 
@@ -105,9 +108,6 @@ public class function {
                 //Menu DAFTAR TAMU MENGINAP
                     case 3:
                         System.out.println("Daftar Tamu Menginap:");
-
-                        //boolean kondisi default bernilai false
-                        boolean adaTamu = false;
                         
                         //Menampilkan array dari inputan check-in tamu
                         for (int i = 0; i < namaTamu.length; i++) {
@@ -346,7 +346,6 @@ public class function {
                                  if (namaTamu[i] != null && namaTamu[i].equalsIgnoreCase(namaCheckout)) {
                                      kamarTersedia[i] = true; // Mengembalikan kamar menjadi tersedia
                                      System.out.println("Checkout berhasil untuk tamu dengan nama " + namaCheckout + ".");
-                                     tamuDitemukan = true;
 
                                      // Menghapus data tamu yang checkout, dengan cara mengembalikan ke nilai default/kosongan array
                                      namaTamu[i] = null; 
@@ -358,6 +357,7 @@ public class function {
                                      jmlTamuKamar[i] = 0;
                                      totalPembayaran[i] = 0;
 
+                                     tamuDitemukan = true;
                                      break;
                                  }
                              }
