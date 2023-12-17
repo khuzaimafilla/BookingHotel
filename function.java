@@ -20,6 +20,7 @@ public class function {
         System.out.println("| Berikut adalah opsi yang bisa anda pilih !                                         |");
         System.out.println("======================================================================================\n");
     }
+
     //Fungsi Main
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -73,6 +74,7 @@ public class function {
             System.out.println("| 4. Check-In                                                                        |");
             System.out.println("| 5. Reschedule                                                                      |");
             System.out.println("| 6. Check-Out                                                                       |");
+            System.out.println("| 7. Laporan Harian                                                                  |"); //anyaran
             System.out.println("| 0. EXIT                                                                            |");
             System.out.println("======================================================================================\n");
 
@@ -369,6 +371,12 @@ public class function {
                          }
                  break;
 
+                //anyaran
+                // Menu LAPORAN HARIAN
+                 case 7:
+                 // Memanggil fungsi laporanHarian untuk menampilkan laporan harian
+                 laporanHarian(namaTamu, asalTamu, usiaTamu, jenisKelamin, lamaMenginapTamu, tanggalBook, totalPembayaran);
+                 break;
                 //Menu EXIT
                 case 0:
                     System.out.println("|====================================================================================|");
@@ -385,5 +393,39 @@ public class function {
                     break;
             }
         }
+    }
+
+    //anyaran
+    //Fungsi laporanHarian
+    static void laporanHarian(String[] namaTamu, String[] asalTamu, int[] usiaTamu,
+    String[] jenisKelamin, int[] lamaMenginapTamu,
+    String[] tanggalBook, long[] totalPembayaran) {
+        System.out.println("titiktitiktitiktitiktitiktitiktitiktitikttiktitiktikti");
+        System.out.println("|          IN LPRN OK mwuacchhhhhhhhhhhhhhhhh        |");
+        System.out.println("tititkittiiktitktiktitkitkiktitkitkitkitkikitiktitktii");
+
+        long totalPendapatan = 0;
+
+        for (int i = 0; i < namaTamu.length; i++) {
+            if (namaTamu[i] != null) {
+                System.out.println("==================");
+                System.out.println("Nama: " + namaTamu[i]);
+                System.out.println("Asal: " + asalTamu[i]);
+                System.out.println("Usia: " + usiaTamu[i] + " Tahun");
+                System.out.println("Jenis Kelamin: " + jenisKelamin[i]);
+                System.out.println("Lama menginap: " + lamaMenginapTamu[i] + " Malam");
+                System.out.println("Tanggal: " + tanggalBook[i]);
+                System.out.println("Total Pembayaran: Rp " + totalPembayaran[i]);
+                System.out.println("==================");
+
+                // Menambahkan total pembayaran ke totalPendapatan
+                totalPendapatan += totalPembayaran[i];
+            }
+        }
+
+        // Menampilkan total pendapatan keseluruhan
+        System.out.println("=====================================");
+        System.out.println("Total Pendapatan Keseluruhan: Rp " + totalPendapatan);
+        System.out.println("=====================================");
     }
 }
