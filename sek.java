@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class hotelFinal {
+public class sek {
     public static void main(String[] args) {
 
         //panggil fungsi selamat datang
