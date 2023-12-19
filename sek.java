@@ -93,7 +93,6 @@ public class sek {
         //Fungsi login Bahasa Indonesia
         static void loginSebagaiBahasa(){
 
-
             while (true) {
                 System.out.println("======================================================================================");
                 System.out.println("|                                 PORTAL LOGIN                                       |");
@@ -153,7 +152,61 @@ public class sek {
         
         //Fungsi login Bahasa Inggris
         static void loginSebagaiEnglish(){
+                while (true) {
+                System.out.println("======================================================================================");
+                System.out.println("|                                 LOGIN PORTAL                                       |");
+                System.out.println("|====================================================================================|");
+                System.out.println("| 1. Login as Admin                                                                  |");
+                System.out.println("| 2. Login as User                                                                   |");
+                System.out.println("| 0. EXIT                                                                            |");
+                System.out.println("|====================================================================================|\n");
 
+                System.out.print("| Input Option : ");
+                int opsiLogin = input.nextInt();
+
+                switch (opsiLogin) {
+                    case 1:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                    LOGIN ADMIN                                     |");
+                        System.out.println("|====================================================================================|");
+
+                        System.out.print("| USERNAME : ");
+                        String username = input.next();
+                        System.out.print("| PASSWORD : ");
+                        String password = input.next();
+
+                        if (username.equalsIgnoreCase("ADMIN") && password.equalsIgnoreCase("ADMIN")) {
+
+                            System.out.println("|====================================================================================|");
+                            System.out.println("|                                LOGIN SUCCESS !                                     |");
+                            System.out.println("|====================================================================================|");
+
+                            mainBahasaAdmin();
+                        } else {
+                            System.out.println("LOGIN FAILED, TRY AGAIN!");
+                        }
+
+                        break;
+
+                    case 2:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                               SUCCESS LOGIN AS USER                                |");
+                        System.out.println("|====================================================================================|");
+                        mainBahasaUser();
+                        break;
+
+                    case 0:
+                        System.exit(0);
+                        break;
+                
+                    default:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                       INVALID!                                     |");
+                        System.out.println("|====================================================================================|");
+                        break;
+                }
+
+            }
         }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
