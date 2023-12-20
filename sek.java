@@ -26,7 +26,7 @@ public class sek {
                 break;
 
             case 2:
-                mainenglishAdmin();
+                loginSebagaiEnglish();
                 break;
 
             case 0:
@@ -98,7 +98,7 @@ public class sek {
                 System.out.println("|                                 PORTAL LOGIN                                       |");
                 System.out.println("|====================================================================================|");
                 System.out.println("| 1. Masuk sebagai Admin                                                             |");
-                System.out.println("| 2. Masuk sebagai User                                                              |");
+                System.out.println("| 2. Masuk sebagai Tamu                                                              |");
                 System.out.println("| 0. EXIT                                                                            |");
                 System.out.println("|====================================================================================|\n");
 
@@ -124,19 +124,24 @@ public class sek {
 
                             mainBahasaAdmin();
                         } else {
+                            System.out.println();
                             System.out.println("LOGIN GAGAL, COBA LAGI");
+                            System.out.println();
                         }
 
                         break;
 
                     case 2:
                         System.out.println("|====================================================================================|");
-                        System.out.println("|                             SUKSES LOGIN SEBAGAI USER                              |");
+                        System.out.println("|                             SUKSES LOGIN SEBAGAI TAMU                              |");
                         System.out.println("|====================================================================================|");
                         mainBahasaUser();
                         break;
 
                     case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 PROGRAM DIHENTIKAN!                                |");
+                        System.out.println("|====================================================================================|");
                         System.exit(0);
                         break;
                 
@@ -157,7 +162,7 @@ public class sek {
                 System.out.println("|                                 LOGIN PORTAL                                       |");
                 System.out.println("|====================================================================================|");
                 System.out.println("| 1. Login as Admin                                                                  |");
-                System.out.println("| 2. Login as User                                                                   |");
+                System.out.println("| 2. Login as Guest                                                                  |");
                 System.out.println("| 0. EXIT                                                                            |");
                 System.out.println("|====================================================================================|\n");
 
@@ -181,7 +186,7 @@ public class sek {
                             System.out.println("|                                LOGIN SUCCESS !                                     |");
                             System.out.println("|====================================================================================|");
 
-                            mainBahasaAdmin();
+                            mainenglishAdmin();
                         } else {
                             System.out.println("LOGIN FAILED, TRY AGAIN!");
                         }
@@ -190,12 +195,15 @@ public class sek {
 
                     case 2:
                         System.out.println("|====================================================================================|");
-                        System.out.println("|                               SUCCESS LOGIN AS USER                                |");
+                        System.out.println("|                               SUCCESS LOGIN AS GUEST                               |");
                         System.out.println("|====================================================================================|");
                         mainBahasaUser();
                         break;
 
                     case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 PROGRAM STOPPED!                                   |");
+                        System.out.println("|====================================================================================|");
                         System.exit(0);
                         break;
                 
@@ -232,7 +240,7 @@ public class sek {
             System.out.println("|                                 ROOM PRICE LIST                                    |");
             System.out.println("|====================================================================================|");
 
-            for (String[] kelas : daftarKamarEng) {
+            for (String[] kelas : daftarKamarEng) { 
                 for (String kamar : kelas) {
                     System.out.println("| " + kamar + " ");
                 }
@@ -320,13 +328,8 @@ public class sek {
         for (int i = 0; i < namaTamu.length; i++) {
             if (namaTamu[i] != null) {
 
-                System.out.println("| Name : " + nama);
-                System.out.println("| Age : " + usia + " YO");
-                System.out.println("| Gender : " + gender);
-                System.out.println("| Origin : " + asal);
-                System.out.println("| Guest " + nama + " have staying for " + lama_menginap + " Nights, ");
-                System.out.println("| Payment total for " + lama_menginap + " Nights : " + total);
-                System.out.println("| Total should be paid = IDR." + total + ",00");
+                System.out.println("| Date : " + tanggalBook[i]);
+                System.out.println("| Payment Total : IDR " + totalPembayaran[i] + ",00");
 
                 System.out.println("|====================================================================================|");
 
