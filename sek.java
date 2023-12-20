@@ -57,6 +57,7 @@ public class sek {
         static int[] jmlTamuKamar = new int[100];      // Array untuk jumlah tamu dalam satu kamar
         static long[] totalPembayaran = new long[100]; // Array untuk total pembayaran tamu
         static String[] tanggalBook = new String[100]; // Array untuk tanggal Booking
+        static long[] totalPend = new long[100];  //Array total untuk laporan pendapatan
 
         //deklarasi variabel
         static char pesanLagi;
@@ -197,7 +198,7 @@ public class sek {
                         System.out.println("|====================================================================================|");
                         System.out.println("|                               SUCCESS LOGIN AS GUEST                               |");
                         System.out.println("|====================================================================================|");
-                        mainBahasaUser();
+                        mainEnglishUser();
                         break;
 
                     case 0:
@@ -446,6 +447,7 @@ static void mainBahasaUser(){
                                     if (kamarTersedia[menu - 1]) {
                                         kamarTersedia[menu - 1] = false;
                                         total = lama_menginap * hargaKamar[menu - 1];
+                                         
 
                                         //Panggil Fungsi untuk menambahkan tamu
                                         tambahTamu();
