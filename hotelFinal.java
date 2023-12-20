@@ -4,8 +4,8 @@ public class hotelFinal {
     public static void main(String[] args) {
 
         //panggil fungsi selamat datang
-        selamatDatang();
-        
+        selamatDatang();     
+
         boolean pilihBahasa = true;
 
         while (pilihBahasa) {
@@ -22,11 +22,11 @@ public class hotelFinal {
 
         switch (menuUtama) {
             case 1:
-                mainBahasa();
+                loginSebagaiBahasa();
                 break;
 
             case 2:
-                mainenglish();
+                loginSebagaiEnglish();
                 break;
 
             case 0:
@@ -90,6 +90,135 @@ public class hotelFinal {
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+        //Fungsi login Bahasa Indonesia
+        static void loginSebagaiBahasa(){
+
+            while (true) {
+                System.out.println("======================================================================================");
+                System.out.println("|                                 PORTAL LOGIN                                       |");
+                System.out.println("|====================================================================================|");
+                System.out.println("| 1. Masuk sebagai Admin                                                             |");
+                System.out.println("| 2. Masuk sebagai Tamu                                                              |");
+                System.out.println("| 0. EXIT                                                                            |");
+                System.out.println("|====================================================================================|\n");
+
+                System.out.print("| Masukkan opsi : ");
+                int opsiLogin = input.nextInt();
+
+                switch (opsiLogin) {
+                    case 1:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                    LOGIN ADMIN                                     |");
+                        System.out.println("|====================================================================================|");
+
+                        System.out.print("| USERNAME : ");
+                        String username = input.next();
+                        System.out.print("| PASSWORD : ");
+                        String password = input.next();
+
+                        if (username.equalsIgnoreCase("ADMIN") && password.equalsIgnoreCase("ADMIN")) {
+
+                            System.out.println("|====================================================================================|");
+                            System.out.println("|                                LOGIN BERHASIL!                                     |");
+                            System.out.println("|====================================================================================|");
+
+                            mainBahasaAdmin();
+                        } else {
+                            System.out.println();
+                            System.out.println("LOGIN GAGAL, COBA LAGI");
+                            System.out.println();
+                        }
+
+                        break;
+
+                    case 2:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                             SUKSES LOGIN SEBAGAI TAMU                              |");
+                        System.out.println("|====================================================================================|");
+                        mainBahasaUser();
+                        break;
+
+                    case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 PROGRAM DIHENTIKAN!                                |");
+                        System.out.println("|====================================================================================|");
+                        System.exit(0);
+                        break;
+                
+                    default:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                   OPSI TIDAK ADA!                                  |");
+                        System.out.println("|====================================================================================|");
+                        break;
+                }
+
+            }
+        }
+        
+        //Fungsi login Bahasa Inggris
+        static void loginSebagaiEnglish(){
+                while (true) {
+                System.out.println("======================================================================================");
+                System.out.println("|                                 LOGIN PORTAL                                       |");
+                System.out.println("|====================================================================================|");
+                System.out.println("| 1. Login as Admin                                                                  |");
+                System.out.println("| 2. Login as Guest                                                                  |");
+                System.out.println("| 0. EXIT                                                                            |");
+                System.out.println("|====================================================================================|\n");
+
+                System.out.print("| Input Option : ");
+                int opsiLogin = input.nextInt();
+
+                switch (opsiLogin) {
+                    case 1:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                    LOGIN ADMIN                                     |");
+                        System.out.println("|====================================================================================|");
+
+                        System.out.print("| USERNAME : ");
+                        String username = input.next();
+                        System.out.print("| PASSWORD : ");
+                        String password = input.next();
+
+                        if (username.equalsIgnoreCase("ADMIN") && password.equalsIgnoreCase("ADMIN")) {
+
+                            System.out.println("|====================================================================================|");
+                            System.out.println("|                                LOGIN SUCCESS !                                     |");
+                            System.out.println("|====================================================================================|");
+
+                            mainenglishAdmin();
+                        } else {
+                            System.out.println("LOGIN FAILED, TRY AGAIN!");
+                        }
+
+                        break;
+
+                    case 2:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                               SUCCESS LOGIN AS GUEST                               |");
+                        System.out.println("|====================================================================================|");
+                        mainBahasaUser();
+                        break;
+
+                    case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 PROGRAM STOPPED!                                   |");
+                        System.out.println("|====================================================================================|");
+                        System.exit(0);
+                        break;
+                
+                    default:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                       INVALID!                                     |");
+                        System.out.println("|====================================================================================|");
+                        break;
+                }
+
+            }
+        }
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
         //Fungsi List Harga Kamar Bahasa Indonesia
         static void listKamarBahasa(){
             System.out.println("|====================================================================================|");
@@ -111,7 +240,7 @@ public class hotelFinal {
             System.out.println("|                                 ROOM PRICE LIST                                    |");
             System.out.println("|====================================================================================|");
 
-            for (String[] kelas : daftarKamarEng) {
+            for (String[] kelas : daftarKamarEng) { 
                 for (String kamar : kelas) {
                     System.out.println("| " + kamar + " ");
                 }
@@ -172,13 +301,8 @@ public class hotelFinal {
         for (int i = 0; i < namaTamu.length; i++) {
             if (namaTamu[i] != null) {
 
-                System.out.println("Nama: " + namaTamu[i]);
-                System.out.println("Asal: " + asalTamu[i]);
-                System.out.println("Usia: " + usiaTamu[i] + " Tahun");
-                System.out.println("Jenis Kelamin: " + jenisKelamin[i]);
-                System.out.println("Lama menginap: " + lamaMenginapTamu[i] + " Malam");
-                System.out.println("Tanggal: " + tanggalBook[i]);
-                System.out.println("Total Pembayaran: Rp " + totalPembayaran[i]);
+                System.out.println("| Tanggal: " + tanggalBook[i]);
+                System.out.println("| Total Pembayaran: Rp " + totalPembayaran[i] + ",00");
 
                 System.out.println("|====================================================================================|");
 
@@ -204,13 +328,8 @@ public class hotelFinal {
         for (int i = 0; i < namaTamu.length; i++) {
             if (namaTamu[i] != null) {
 
-                System.out.println("| Name : " + nama);
-                System.out.println("| Age : " + usia + " YO");
-                System.out.println("| Gender : " + gender);
-                System.out.println("| Origin : " + asal);
-                System.out.println("| Guest " + nama + " have staying for " + lama_menginap + " Nights, ");
-                System.out.println("| Payment total for " + lama_menginap + " Nights : " + total);
-                System.out.println("| Total should be paid = IDR." + total + ",00");
+                System.out.println("| Date : " + tanggalBook[i]);
+                System.out.println("| Payment Total : IDR " + totalPembayaran[i] + ",00");
 
                 System.out.println("|====================================================================================|");
 
@@ -224,15 +343,395 @@ public class hotelFinal {
                 System.out.println("|====================================================================================|");
         }
 
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        //fungsi bahasa indonesia
-        static void mainBahasa(){
+//Fungsi Bahasa Indonesia untuk User
+static void mainBahasaUser(){
+    while (true) {
+                System.out.println("======================================================================================");
+                System.out.println("|                                      MENU USER                                     |");
+                System.out.println("|====================================================================================|");
+                System.out.println("| 1. List harga kelas kamar                                                          |");
+                System.out.println("| 2. Check Ketersediaan Kamar                                                        |");
+                System.out.println("| 3. Check-In                                                                        |");
+                System.out.println("| 0. Logout                                                                          |");
+                System.out.println("======================================================================================\n");
+
+                //Inputan untuk memilih opsi MENU
+                System.out.print(" Masukkan Opsi: "); 
+                int opsi = input.nextInt();
+                System.out.println();
+
+                //Switch case untuk MENU
+                switch (opsi) {
+
+                    //Menu LIST HARGA KELAS KAMAR
+                    case 1:
+                        listKamarBahasa();
+                        break;
+
+                    //Menu CHECK KETERSEDIAAN KAMAR
+                    case 2:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                               KETERSEDIAAN KAMAR                                   |");
+                        System.out.println("|====================================================================================|");
+                                for (int i = 0; i < kelasKamar.length; i++) {
+                                    String status = kamarTersedia[i] ? "Tersedia" : "Terisi";
+                                    System.out.println("| " + (i + 1) + ". " + kelasKamar[i] + " - Status: " + status);
+                                }
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+
+                        break;
+
+                    //Menu CHECK-IN
+                    case 3:
+                        do {
+                            System.out.println("|====================================================================================|");
+                            System.out.println("|                                    PESAN KAMAR                                     |");
+                            System.out.println("|====================================================================================|");
+
+                            //inputan untuk nama tamu
+                            System.out.print("| Masukkan nama tamu: ");
+                            nama = input.next();
+
+                            //inputan untuk usia tamu
+                            System.out.print("| Masukkan usia tamu: ");
+                            usia = input.nextInt();
+
+                            //inputan untuk jenis kelamin tamu
+                            System.out.print("| Masukkan jenis kelamin tamu (Laki/Perempuan): ");
+                            gender = input.next();
+
+                            //inputan untuk asal daerah tamu
+                            System.out.print("| Masukkan asal daerah/domisili tamu: ");
+                            asal = input.next();
+
+                            //inputan untuk tanggal pemesanan tamu
+                            System.out.print("| Masukkan tanggal pemesanan (Dd-Mm-Yy) : ");
+                            tanggalBooking = input.next();
+
+                            //inputan untuk waktu tamu menginap
+                            System.out.print("| Masukkan waktu lama menginap tamu (Malam): ");
+                            lama_menginap = input.nextInt();
+
+                            //inputan untuk jumlah tamu dalam 1 kamar
+                            System.out.print("| Masukkan jumlah tamu dalam satu kamar: ");
+                            jmlTamu = input.nextInt();
+
+                            //Kondisi apabila jumlah tamu yang dimasukkan <= 4 orang
+                            if (jmlTamu <= 4) {
+
+                                // MENAMPILKAN OPSI PILIH KAMAR
+                                System.out.println("====================================");
+                                System.out.println("|Pilihan Kelas Kamar yang Tersedia:|");
+                                System.out.println("====================================");
+
+                                //opsi pilih kamar dengan menampilkan kelas dan harga kamar 
+                                for (int i = 0; i < kelasKamar.length; i++) {
+                                    System.out.println((i + 1) + ". " + kelasKamar[i] + " - Harga: Rp " + hargaKamar[i]);
+                                }
+                                System.out.println("====================================");
+
+                                //inputan untuk memilih jenis kamar yang ingin dibooking
+                                System.out.print("Pilih jenis kamar: ");
+                                int menu = input.nextInt();
+
+                                //Kondisi saat memilih kamar
+                                if (menu >= 1 && menu <= kelasKamar.length) {
+
+                                    // menu -1, artinya saat memilih menu kamar, array akan dipanggil sesuai indexnya, yaitu dimulai dari index 0
+                                    // ketika kita memilih opsi kamar 1, maka yang terpanggil adalah array di index 0
+                                    if (kamarTersedia[menu - 1]) {
+                                        kamarTersedia[menu - 1] = false;
+                                        total = lama_menginap * hargaKamar[menu - 1];
+
+                                        //Panggil Fungsi untuk menambahkan tamu
+                                        tambahTamu();
+
+                                        // MENAMPILKAN DETAIL PESANAN (Struk struk an)
+                                        System.out.println("============================================================================================");
+                                        System.out.println("|                                     DETAIL PEMESANAN                                     |");
+                                        System.out.println("============================================================================================");
+                                        System.out.println("| Tanggal booking : " + tanggalBooking);
+                                        System.out.println("| Jenis kelas kamar : " + kelasKamar[menu-1]);
+                                        System.out.println("| Nama: " + nama);
+                                        System.out.println("| Usia: " + usia + " Tahun");
+                                        System.out.println("| Jenis Kelamin: " + gender);
+                                        System.out.println("| Asal Daerah: " + asal);
+                                        System.out.println("===========================================================================================|");
+                                        System.out.println("|                                    Detail Pembayaran                                     |");
+                                        System.out.println("===========================================================================================|");
+                                        System.out.println("| Pelanggan "+nama+" melakukan penginapan selama "+lama_menginap+" malam, ");
+                                        System.out.println("| Total pembayaran selama " + lama_menginap + " malam: " + total);
+                                        System.out.println("| Total yang harus dibayar oleh pelanggan = Rp." + total +",00");
+                                        System.out.println("|==========================================================================================|");
+                                        System.out.println("|                       TERIMAKASIH TELAH MENGINAP DI HOTEL KAMI !!!                       |");
+                                        System.out.println("|==========================================================================================|");
+                                        System.out.println("| *pastikan semua barang dan perlengkapan anda tidak tertinggal di kamar maupun area hotel |");
+                                        System.out.println("| *pihak hotel tidak akan bertanggungjawab atas segala kehilangan yang dialami pelanggan   |");
+                                        System.out.println("============================================================================================");
+                                        System.out.println();
+                                    } else {
+
+                                        //Kondisi apabila kamar yang dipilih sudah terisi oleh tamu yang telah melakukan check-in sebelumnya
+                                        System.out.println("|====================================================================================|");
+                                        System.out.println("|                       KAMAR SUDAH TERISI, PILIH KAMAR LAIN!                        |");
+                                        System.out.println("|====================================================================================|");
+                                        System.out.println();
+                                    }
+                                } else {
+
+                                    //kondisi apabila opsi menu kamar tidak ditemukan
+                                    System.out.println("|====================================================================================|");
+                                    System.out.println("|                               PILIHAN TIDAK VALID!                                 |");
+                                    System.out.println("|====================================================================================|");
+                                    System.out.println();
+                                }
+                            } else {
+
+                                // kondisi apabila jumlah tamu lebih dari 4 orang
+                                System.out.println("|====================================================================================|");
+                                System.out.println("|                          TAMU TIDAK BOLEH LEBIH DARI 4!                            |");
+                                System.out.println("|====================================================================================|");
+                                System.out.println();
+                            }
+                            
+                            //Konfirmasi check-in ulang atau tidak?
+                            System.out.print("Lakukan Check-in lagi? (Y/N): ");
+                            pesanLagi = input.next().charAt(0); //input an diambil index ke-0 / huruf pertama
+
+                            //Kondisi apabila memilih opsi N/n/NO
+                            if (pesanLagi == 'N' || pesanLagi == 'n') {
+                                break;
+                            }
+
+                        //Kondisi apabila memilih opsi Y/y/YES
+                        } while (pesanLagi == 'Y' || pesanLagi == 'y');
+
+                    break;
+
+                    //Menu EXIT
+                    case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                               USER TELAH DI LOG OUT!                               |");
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+
+                        loginSebagaiBahasa();
+                        break;
+
+                    //Kondisi jika case tidak terpenuhi / tidak ada dalam switch
+                    default:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 OPSI TIDAK ADA!                                    |");
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+                        break;
+                }
+            }
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+//Fungsi Bahasa Inggris untuk User
+static void mainEnglishUser(){  
+    while (true) {
+                System.out.println("======================================================================================");
+                System.out.println("|                                     USER MENU                                      |");
+                System.out.println("|====================================================================================|");
+                System.out.println("| 1. Room Price List                                                                 |");
+                System.out.println("| 2. Check Room Availability                                                         |");
+                System.out.println("| 3. Check-In                                                                        |");
+                System.out.println("| 0. Log-Out                                                                         |");
+                System.out.println("======================================================================================\n");
+
+                //Inputan untuk memilih opsi MENU
+                System.out.print(" Input Option: ");
+                int opsi = input.nextInt();
+                System.out.println();
+
+                //Switch case untuk MENU
+                switch (opsi) {
+
+                    //Menu LIST HARGA KELAS KAMAR
+                    case 1:
+                        listKamarEnglish();
+                        break;
+
+                    //Menu CHECK KETERSEDIAAN KAMAR
+                    case 2:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                ROOM AVAILABILITY                                   |");
+                        System.out.println("|====================================================================================|");
+                                for (int i = 0; i < kelasKamar.length; i++) {
+                                    String status = kamarTersedia[i] ? "Available" : "Occupied";
+                                    System.out.println("| " + (i + 1) + ". " + kelasKamar[i] + " - Status: " + status);
+                                }
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+
+                        break;
+
+                    //Menu CHECK-IN
+                    case 3:
+                        do {
+                            System.out.println("|====================================================================================|");
+                            System.out.println("|                                    CHECK - IN                                      |");
+                            System.out.println("|====================================================================================|");
+
+                            //inputan untuk nama tamu
+                            System.out.print("| Input Guest's Name : ");
+                            nama = input.next();
+
+                            //inputan untuk usia tamu
+                            System.out.print("| Input Guest's Age : ");
+                            usia = input.nextInt();
+
+                            //inputan untuk jenis kelamin tamu
+                            System.out.print("| Input Guest's Gender (Male/Female) : ");
+                            gender = input.next();
+
+                            //inputan untuk asal daerah tamu
+                            System.out.print("| Input Guest's Origin / Domicile : ");
+                            asal = input.next();
+
+                            //inputan untuk tanggal pemesanan tamu
+                            System.out.print("| Input Staying Overnight Date (Dd-Mm-Yy) : ");
+                            tanggalBooking = input.next();
+
+                            //inputan untuk waktu tamu menginap
+                            System.out.print("| Input Guest's Duration of Stay (Night) : ");
+                            lama_menginap = input.nextInt();
+
+                            //inputan untuk jumlah tamu dalam 1 kamar
+                            System.out.print("| Input Guest Quantity per Room : ");
+                            jmlTamu = input.nextInt();
+
+                            //Kondisi apabila jumlah tamu yang dimasukkan <= 4 orang
+                            if (jmlTamu <= 4) {
+
+                                // MENAMPILKAN OPSI PILIH KAMAR
+                                System.out.println("====================================");
+                                System.out.println("| Available Room Class :           |");
+                                System.out.println("====================================");
+
+                                //opsi pilih kamar dengan menampilkan kelas dan harga kamar 
+                                for (int i = 0; i < kelasKamar.length; i++) {
+                                    System.out.println((i + 1) + ". " + kelasKamar[i] + " - Price : Rp " + hargaKamar[i]);
+                                }
+                                System.out.println("====================================");
+
+                                //inputan untuk memilih jenis kamar yang ingin dibooking
+                                System.out.print("Choose Room Class : ");
+                                int menu = input.nextInt();
+
+                                //Kondisi saat memilih kamar
+                                if (menu >= 1 && menu <= kelasKamar.length) {
+
+                                    // menu -1, artinya saat memilih menu kamar, array akan dipanggil sesuai indexnya, yaitu dimulai dari index 0
+                                    // ketika kita memilih opsi kamar 1, maka yang terpanggil adalah array di index 0
+                                    if (kamarTersedia[menu - 1]) {
+                                        kamarTersedia[menu - 1] = false;
+                                        total = lama_menginap * hargaKamar[menu - 1];
+
+                                        //panggil fungsi untuk menambahkan tamu
+                                        tambahTamu();
+
+                                        // MENAMPILKAN DETAIL PESANAN (Struk struk an)
+                                        System.out.println("============================================================================================");
+                                        System.out.println("|                                     BOOKING DETAILS                                      |");
+                                        System.out.println("============================================================================================");
+                                        System.out.println("| Booking Date : " + tanggalBooking);
+                                        System.out.println("| Class : " + kelasKamar[menu-1]);
+                                        System.out.println("| Name : " + nama);
+                                        System.out.println("| Age : " + usia + " YO");
+                                        System.out.println("| Gender : " + gender);
+                                        System.out.println("| Origin : " + asal);
+                                        System.out.println("===========================================================================================|");
+                                        System.out.println("|                                      Payment Details                                     |");
+                                        System.out.println("===========================================================================================|");
+                                        System.out.println("| Guest "+nama+" have staying for "+lama_menginap+" Nights, ");
+                                        System.out.println("| Payment total for " + lama_menginap + " Nights : " + total);
+                                        System.out.println("| Total should be paid = IDR." + total +",00");
+                                        System.out.println("|==========================================================================================|");
+                                        System.out.println("|                           THANK YOU FOR STAYING OVERNIGHT !!!                            |");
+                                        System.out.println("|==========================================================================================|");
+                                        System.out.println("| *MAKE SURE NOTHING IS LEFT BEHIND !!!                                                    |");
+                                        System.out.println("| *THE HOTEL IS NOT RESPONSIBLE FOR ANY LOSSES !!!                                         |");
+                                        System.out.println("============================================================================================");
+                                        System.out.println();
+                                    } else {
+
+                                        //Kondisi apabila kamar yang dipilih sudah terisi oleh tamu yang telah melakukan check-in sebelumnya
+                                        System.out.println("|====================================================================================|");
+                                        System.out.println("|                       ROOM OCCUPIED, CHOOSE ANOTHER ROOM !                         |");
+                                        System.out.println("|====================================================================================|");
+                                        System.out.println();
+                                    }
+                                } else {
+
+                                    //kondisi apabila opsi menu kamar tidak ditemukan
+                                    System.out.println("|====================================================================================|");
+                                    System.out.println("|                                 OPTION INVALID !                                   |");
+                                    System.out.println("|====================================================================================|");
+                                    System.out.println();
+                                }
+                            } else {
+
+                                // kondisi apabila jumlah tamu lebih dari 4 orang
+                                System.out.println("|====================================================================================|");
+                                System.out.println("|                          MAXIMUM GUEST CAPACITY IS 4  !                            |");
+                                System.out.println("|====================================================================================|");
+                                System.out.println();
+                            }
+                            
+                            //Konfirmasi check-in ulang atau tidak?
+                            System.out.print("Re-Check in? (Y/N): ");
+                            pesanLagi = input.next().charAt(0); //input an diambil index ke-0 / huruf pertama
+
+                            //Kondisi apabila memilih opsi N/n/NO
+                            if (pesanLagi == 'N' || pesanLagi == 'n') {
+                                break;
+                            }
+
+                        //Kondisi apabila memilih opsi Y/y/YES
+                        } while (pesanLagi == 'Y' || pesanLagi == 'y');
+
+                    break;
+
+                    //Menu EXIT
+                    case 0:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 USER LOGGED OUT!                                   |");
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+
+                        //Untuk menghentikan program / kondisi / switch case
+                        loginSebagaiEnglish();
+                        break;
+
+                    //Kondisi jika case tidak terpenuhi / tidak ada dalam switch
+                    default:
+                        System.out.println("|====================================================================================|");
+                        System.out.println("|                                 OPTION INVALID !                                   |");
+                        System.out.println("|====================================================================================|");
+                        System.out.println();
+                        break;
+                }
+            }
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        //fungsi bahasa indonesia untuk Admin
+        static void mainBahasaAdmin(){
 
             //Print MENU berulang, selama kondisi dari setiap case bernilai true
             while (true) {
                 System.out.println("======================================================================================");
-                System.out.println("|                                      MENU                                          |");
+                System.out.println("|                                     MENU ADMIN                                     |");
                 System.out.println("|====================================================================================|");
                 System.out.println("| 1. List harga kelas kamar                                                          |");
                 System.out.println("| 2. Check Ketersediaan Kamar                                                        |");
@@ -241,7 +740,7 @@ public class hotelFinal {
                 System.out.println("| 5. Reschedule                                                                      |");
                 System.out.println("| 6. Check-Out                                                                       |");
                 System.out.println("| 7. Laporan Harian                                                                  |");
-                System.out.println("| 0. EXIT                                                                            |");
+                System.out.println("| 0. Logout                                                                          |");
                 System.out.println("======================================================================================\n");
 
                 //Inputan untuk memilih opsi MENU
@@ -561,12 +1060,12 @@ public class hotelFinal {
                     //Menu EXIT
                     case 0:
                         System.out.println("|====================================================================================|");
-                        System.out.println("|                                PROGRAM DIHENTIKAN!                                 |");
+                        System.out.println("|                               ADMIN TELAH DI LOG OUT                               |");
                         System.out.println("|====================================================================================|");
                         System.out.println();
-
+                        
+                        loginSebagaiBahasa();
                         //Untuk menghentikan program / kondisi / switch case
-                        System.exit(0);
                         break;
 
                     //Kondisi jika case tidak terpenuhi / tidak ada dalam switch
@@ -582,8 +1081,8 @@ public class hotelFinal {
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        //fungsi bahasa inggris
-        static void mainenglish(){
+        //fungsi bahasa inggris untuk Admin
+        static void mainenglishAdmin(){
             //Print MENU berulang, selama kondisi dari setiap case bernilai true
             while (true) {
                 System.out.println("======================================================================================");
@@ -596,7 +1095,7 @@ public class hotelFinal {
                 System.out.println("| 5. Reschedule                                                                      |");
                 System.out.println("| 6. Check-Out                                                                       |");
                 System.out.println("| 7. Daily Report                                                                    |");
-                System.out.println("| 0. EXIT                                                                            |");
+                System.out.println("| 0. Log-Out                                                                            |");
                 System.out.println("======================================================================================\n");
 
                 //Inputan untuk memilih opsi MENU
@@ -917,12 +1416,12 @@ public class hotelFinal {
                     //Menu EXIT
                     case 0:
                         System.out.println("|====================================================================================|");
-                        System.out.println("|                                PROGRAM STOPPED !!!                                 |");
+                        System.out.println("|                                  ADMIN LOGGED OUT                                  |");
                         System.out.println("|====================================================================================|");
                         System.out.println();
 
-                        //Untuk menghentikan program / kondisi / switch case
-                        System.exit(0);
+                        //Untuk kembali ke menu login
+                        loginSebagaiEnglish();
                         break;
 
                     //Kondisi jika case tidak terpenuhi / tidak ada dalam switch
